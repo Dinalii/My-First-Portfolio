@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8" />
+  <title>Portfolio</title>
+  <meta name="descripOon" content="LoginForm">
+  <meta name="author" content="Dinali">
+  <link rel="stylesheet" href="external.css">
+</head>
+ 
+
+<body class="loginbody">    
+  <!-- SURVEY FORM -->
+  <form action="URL" id="survey-form" form name="surveyForm" class="survey-form" autocomplete="off" onsubmit="return validateForm()" method="post">
+    <fieldset class="">
+      <legend>Rate Us</legend>
+        <div class="personal-details">
+          <div id="survey-name" class="survey-name">
+            <label for="namee"  id="name-label">Name: <span>*</span></label>
+            <input type="text" id="name" name="name" placeholder="Type your name"/>             
+          </div>    
+
+          <div id="survey-email" class="survey-email">
+            <label for="email" id="email-label">Email: <span>*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Type your email"
+            />
+          </div>
+
+          <div id="survey-age" class="survey-country">
+            <label for="text" id="number-label">Country: </label>
+            <input  type="text"  id="country" name="country"  placeholder="Country"/>              
+          </div>                    
+                       
+           <!--STAR RATING -->
+            <div class="survey-rating">
+              <input type="radio" id="5-stars" name="rating" value="Awesome" />
+              <label for="5-stars" class="star">&#9733;</label>
+              <input type="radio" id="4-stars" name="rating" value="Pretty Good" />
+              <label for="4-stars" class="star">&#9733;</label>
+              <input type="radio" id="3-stars" name="rating" value="Meh" />
+              <label for="3-stars" class="star">&#9733;</label>
+              <input type="radio" id="2-stars" name="rating" value="Kinda Bad" />
+              <label for="2-stars" class="star">&#9733;</label>
+              <input type="radio" id="1-star" name="rating" value="Bad" />
+              <label for="1-star" class="star">&#9733;</label>
+            </div>
+              
+  
+            <!--COMMENTS-->
+            <div class="text-area">
+              <label for="textarea">Comments:</label>
+              <textarea name="comment" id="comment" placeholder="Please type your comment here" ></textarea>
+            </div>                 
+        </div>
+
+        <div id="survey-submit" class="survey-submit">
+          <button type="submit" value="Submit" id="submit" onclick="showData();">Submit</button>
+          </div>
+    </fieldset>
+  </form>
+
+      <script>
+        // VALIDATION OF THE FORM
+        function validateForm() {
+          var x = document.forms["surveyForm"]["name"].value;
+          var y = document.forms["surveyForm"]["rating"].value;
+        
+          if (x == "") {
+            alert("Name must be filled out");
+            return false;
+          }
+          if (y == "") {
+            alert("Rating must be filled out");
+            return false;
+          }          
+        }
+
+        // output
+        function showData()
+              {   var name=document.getElementById("name").value;
+                  var comment=document.getElementById("comment").value;
+                  var rating = document.querySelector("[name=rating]:checked");
+                  alert("Dear "+name+" Thank you very much for your feedback. You have rated our site as "+rating.value+" and your comment was "+comment+".");
+              }
+
+        //Get the button
+        var mybutton = document.getElementById("scrollBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+        } else {
+        mybutton.style.display = "none";
+        }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        }
+        </script>
+         
+</body>
+</html>
